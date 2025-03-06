@@ -1,13 +1,11 @@
 // const API = "http://localhost:1337/api";
 const API = 'https://balanced-belief-6831107eef.strapiapp.com/api'
-
 const row = document.querySelector(".row");
 const header_button = document.querySelector(".header_button");
 const header_modal_close = document.querySelector(".header_modal_close");
 const header_modal_close_2 = document.querySelector(".header_modal_close_2");
 let ProductIdValue = null;
 let productData = {};
-
 // Saytga kirganda APIdan Ma'lumotlarni olib keladi va Ekranga render qiladi.
 async function GetProducts() {
   try {
@@ -84,7 +82,6 @@ async function GetProducts() {
 }
 // GetProducts Funksiyani ishga tushiradi
 GetProducts();
-
 // Edit Tugmasi bosilganda Edit modalni ishga tushiradigan funksiya
 function OpenEditModal() {
   document.querySelector(".modal_box_edit").classList.add("active_modal");
@@ -92,7 +89,6 @@ function OpenEditModal() {
     .querySelector(".content_modal_box_edit")
     .classList.add("active_content_modal");
 }
-
 // Edit Tugmasi Bosilganda Edit Modal Ochiladi va uni qiymatlari APIdan olib kelinadi.
 function Edit(id) {
   ProductIdValue = id;
@@ -122,13 +118,11 @@ function Edit(id) {
     console.log(error);
   })
 }
-
 // Inputlarni yangilash (foydalanuvchi o'zgartirganda)
 function handleInputChange(event) {
   const { name, value } = event.target;
   productData[name] = value; // Yangi qiymatni global o'zgaruvchiga yozamiz
 }
-
 // Edit Modalni yopadi X tugmasi bosilganda
 document.querySelector(".header_modal_close_edit").addEventListener("click", function () {
   document.querySelector(".modal_box_edit").classList.remove("active_modal");
@@ -177,7 +171,6 @@ function EditProduct(event) {
     })
     .catch((error) => console.error("Xatolik:", error));
 }
-
 // Delete knopkasi bosilganda aynan o'sha mahsulot ekrandan va APIdan o'chiriladi
 function Delete(id) {
   fetch(`${API}/products/${id}`, {
@@ -289,7 +282,6 @@ function CreateProduct(event) {
       console.log(error);
     });
 }
-
 // Search funksiyasi Inputga kiritilgan mahsulot nomini Apidan qidirib Ekranga mosini chiqaradi.
 function Search(event) {
   const value = event.target.value.trim(); // Faqat bo‘sh joylarni olib tashlash
@@ -375,7 +367,6 @@ function Search(event) {
     console.error("Try-catch error:", error);
   }
 }
-
 // Filter Funksiyasi bosilganda Mahsulotlarni Alfabit bo'yicha tartiblaydi.
 async function Filter() {
   try {
